@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./script.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="/">
+          <img src="./assets/img/logo.svg" alt="Wordle Game" />
+        </a>
+      </div>
+      <div class="cont flex">
+        <a class="lang mini_modal_link" href="">
+          <span class="icon fi fi-us"></span>
+          "EN"
+        </a>
+        <button type="button" class="give_up" style="display: none">
+          Give up
+        </button>
+        <div class="buttons flex">
+          <button type="button" class="button mini_modal_link">
+            <img
+              src="./assets/img/help-circle.svg"
+              alt="How to
+                  play"
+            />
+          </button>
+        </div>
+      </div>
+    </header>
+    <div id="game-wrapper">
+      <div class="game_rows">
+        <div class="Row">
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+        </div>
+        <div class="Row">
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+        </div>
+        <div class="Row">
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+        </div>
+        <div class="Row">
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+        </div>
+        <div class="Row">
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+        </div>
+        <div class="Row">
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+          <div class="Row-letter">
+            <sup style="display: none"></sup>
+          </div>
+        </div>
+        <div class="message" style="display: none">
+          <b>You won!🏆</b>
+        </div>
+        <!-- Losing Modal -->
+        <div class="modal_finish" style="display: none">
+          <div class="top lost">You lost!</div>
+          <div class="data">
+            <div class="cont" style="height: auto !important">
+              <div class="desc">The answer was:</div>
+              <div class="word">
+                <span></span>
+              </div>
+              <a
+                class="definition"
+                href="https://www.dictionary.com"
+                target="_blank"
+              >
+                What does this word mean?
+              </a>
+              <div class="restart_btn">
+                <button type="button" onclick="window.location.reload()">
+                  New game
+                </button>
+              </div>
+              <div class="or_text">or press Enter to play again</div>
+            </div>
+          </div>
+          <button type="button" class="close" onclick="closeModal()">X</button>
+        </div>
+
+        <div class="Game-keyboard">
+          <div class="Game-keyboard-row">
+            <div class="Game-keyboard-button">q</div>
+            <div class="Game-keyboard-button">w</div>
+            <div class="Game-keyboard-button">e</div>
+            <div class="Game-keyboard-button">r</div>
+            <div class="Game-keyboard-button">t</div>
+            <div class="Game-keyboard-button">y</div>
+            <div class="Game-keyboard-button">u</div>
+            <div class="Game-keyboard-button">i</div>
+            <div class="Game-keyboard-button">o</div>
+            <div class="Game-keyboard-button">p</div>
+          </div>
+          <div class="Game-keyboard-row">
+            <div class="Game-keyboard-button">a</div>
+            <div class="Game-keyboard-button">s</div>
+            <div class="Game-keyboard-button">d</div>
+            <div class="Game-keyboard-button">f</div>
+            <div class="Game-keyboard-button">g</div>
+            <div class="Game-keyboard-button">h</div>
+            <div class="Game-keyboard-button">j</div>
+            <div class="Game-keyboard-button">k</div>
+            <div class="Game-keyboard-button">l</div>
+          </div>
+          <div class="Game-keyboard-row">
+            <div class="Game-keyboard-button">
+              <div class="Game-keyboard-button" data-key="backspace">
+                <svg
+                  width="28"
+                  height="28"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 9.75 14.25 12m0 0 2.25 2.25M14.25 12l2.25-2.25M14.25 12 12 14.25m-2.58 4.92-6.374-6.375a1.125 1.125 0 0 1 0-1.59L9.42 4.83c.21-.211.497-.33.795-.33H19.5a2.25 2.25 0 0 1 2.25 2.25v10.5a2.25 2.25 0 0 1-2.25 2.25h-9.284c-.298 0-.585-.119-.795-.33Z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div class="Game-keyboard-button">z</div>
+            <div class="Game-keyboard-button">x</div>
+            <div class="Game-keyboard-button">c</div>
+            <div class="Game-keyboard-button">v</div>
+            <div class="Game-keyboard-button">b</div>
+            <div class="Game-keyboard-button">n</div>
+            <div class="Game-keyboard-button">m</div>
+            <div class="Game-keyboard-button" data-key="enter">Enter</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- How to Play Modal -->
+    <div class="mini_modal" id="modal_info" style="display: none">
+      <div class="top">How to play</div>
+      <div class="data">
+        <div class="cont">
+          <div class="info">
+            <div class="text">
+              You have to guess the hidden word in 6 tries and the color of the
+              letters changes to show how close you are.
+            </div>
+            <div class="text">
+              To start the game, just enter any word, for example:
+            </div>
+            <div class="word flex">
+              <div class="letter">T</div>
+              <div class="letter yellow_letter">A</div>
+              <div class="letter">B</div>
+              <div class="letter yellow_letter">L</div>
+              <div class="letter green_letter">E</div>
+            </div>
+            <div class="text text-tiles">
+              <b class="grey_text">T</b>, <b class="grey_text">B</b> aren't in
+              the target word at all.
+              <br />
+              <b class="yellow_text">A</b>, <b class="yellow_text">L</b> is in
+              the word but in the wrong spot.
+              <br />
+              <b class="green_text">E</b> is in the word and in the correct
+              spot.
+            </div>
+            <div class="text">
+              Another try to find matching letters in the target word.
+            </div>
+            <div class="word flex">
+              <div class="letter green_letter">F</div>
+              <div class="letter green_letter">L</div>
+              <div class="letter green_letter">A</div>
+              <div class="letter">S</div>
+              <div class="letter">H</div>
+            </div>
+            <div class="text">So close!</div>
+            <div class="word flex">
+              <div class="letter green_letter">F</div>
+              <div class="letter green_letter">L</div>
+              <div class="letter green_letter">A</div>
+              <div class="letter green_letter">M</div>
+              <div class="letter green_letter">E</div>
+            </div>
+            <div class="text"><b>Got it! 🏆</b></div>
+          </div>
+        </div>
+      </div>
+      <!-- Close icon -->
+      <button type="button" class="close" aria-label="Close"></button>
+    </div>
+  </body>
+</html>
